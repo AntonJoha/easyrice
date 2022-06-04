@@ -2,8 +2,11 @@
 
 import os
 
-def getconfig():
-	file = open(os.environ['HOME'] + "/.config/easyrice/config")
+def getconfig(filename):
+	if filename == None:
+		filename = os.environ['HOME'] + "/.config/easyrice/config"
+	print(filename)
+	file = open(filename, "r")
 	toReturn = {}
 	for line in file:
 		if line.count("=") != 1:
@@ -19,8 +22,10 @@ def getconfig():
 	return toReturn
 
 
-def getcommands():
-	file = open(os.environ['HOME'] + "/.config/easyrice/commands", "r")
+def getcommands(filename):
+	if filename == None:
+		filename = os.environ['HOME'] + "/.config/easyrice/commands"
+	file = open(filename, "r")
 	toReturn = []
 	curr = {}
 	for line in file:

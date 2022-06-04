@@ -5,15 +5,23 @@ import sys
 import Add
 from PIL import Image,  ImageEnhance, ImageFilter, ImageFont, ImageDraw
 import Textdraw
+import argparse
 
-commands = Config.getcommands()
-config = Config.getconfig()
+parser = argparse.ArgumentParser(description="Easy rice");
+parser.add_argument("-c","--config", dest="config", type=str, help="Path to configurationfile")
+parser.add_argument("-d", "--dest", required=True, dest="dest", type=str, help="Path to save file")
+parser.add_argument("-s", "-src", required=True, dest="src", type=str, help="Path to image")
+
+args = parser.parse_args()
+
+commands = Config.getcommands(args.config)
+config = Config.getconfig(args.config)
 
 if (len(sys.argv) < 3):
 	print("Too few commands it needs to be NAME + <filepath>")
 	sys.exit(-1)
 
-img = Image.open(sys.argv[1], "r")
+img = Image.open(args.src, "r")
 copy = img.copy()
 
 draw = ImageDraw.Draw(copy)
@@ -34,5 +42,5 @@ text = Textdraw.TextCreation(draw, font, bold,cursive)
 for c in commands:
 	#TODO Maybe? Fix so there are flexible margins.
 	text.commandToText(c["command"], c["x"] + 6, c["y"] + 6, c["width"], c["heigth"])
-img.save(sys.argv[2], "PNG")
+img.save(args.dest, "PNG")
 
