@@ -1,3 +1,5 @@
-font=/usr/share/fonts/gnu-free/FreeMono.otf
-bold=/usr/share/fonts/gnu-free/FreeMonoBold.otf
-cursive=/usr/share/fonts/gnu-free/FreeMonoOblique.otf
+font=/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
+bold=/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf  
+cursive=/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf  
+
+

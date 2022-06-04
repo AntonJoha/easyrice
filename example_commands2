@@ -1,5 +1,11 @@
-command=curl wttr.in
+command=pyphoon-lolcat
 x=0
 y=0
-width=800
-heigth=400
+width=720
+heigth=538
+[new]
+command=fortune
+x=20
+y=400
+width=100
+heigth=0

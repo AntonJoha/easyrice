@@ -37,9 +37,11 @@ for c in commands:
 	Add.addrectangle(draw, c["x"], c["x"] + c["width"], c["y"], c["y"] + c["heigth"])
 img = Image.blend(img, copy, 0.8)
 draw = ImageDraw.Draw(img)
-font = ImageFont.truetype(config["font"].strip("\n"))
-bold = ImageFont.truetype(config["bold"].strip("\n"))
-cursive = ImageFont.truetype(config["cursive"].strip("\n"))
+font = ImageFont.truetype(config["font"].strip("\n"), 15)
+#bold = ImageFont.truetype(config["bold"].strip("\n"))
+#cursive = ImageFont.truetype(config["cursive"].strip("\n"))
+bold = font
+cursive = bold
 text = Textdraw.TextCreation(draw, font, bold,cursive)
 for c in commands:
 	#TODO Maybe? Fix so there are flexible margins.
