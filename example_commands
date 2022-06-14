@@ -1,11 +1,6 @@
 command=neofetch
-x=100
-y=45
-width=500
-heigth=200
-[new]
-command=curl wttr.in
 x=0
 y=0
-width=800
-heigth=400
+width=500
+height=200
+

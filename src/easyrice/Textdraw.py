@@ -21,6 +21,7 @@ class TextCreation:
         self.size = font.getsize("a")
         #THIS IS ADDED AS A SMALL MARGIN BETWEEN THE LINES
         self.size = (self.size[0], self.size[1] + 1)
+        print(self.size)
         self.strikethrough = False
         self.underline = False
 
@@ -66,6 +67,7 @@ class TextCreation:
     def _newline(self):
         self._flush()
         self.pos = (0, self.pos[1] + 1)
+        print("newline")
 
     def _addchar(self, char):
         self.buffer += char
