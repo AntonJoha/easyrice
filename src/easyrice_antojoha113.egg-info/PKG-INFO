@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: easyrice-antojoha113
+Version: 0.0.1
+Summary: Easy rice
+Home-page: https://github.com/AntonJoha/easyrice
+Author: Anton Johansson
+Author-email: antojohansson1@gmail.com
+Project-URL: Bug Tracker, https://github.com/AntonJoha/easyrice/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# easyrice
+Easily make an image with commandoutputs
