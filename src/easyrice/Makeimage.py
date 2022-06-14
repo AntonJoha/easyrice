@@ -1,8 +1,8 @@
-import Config
+import easyrice.Config
 import sys
-import Add
+import easyrice.Add
 from PIL import Image,  ImageEnhance, ImageFilter, ImageFont, ImageDraw
-import Textdraw
+import easyrice.Textdraw
 import argparse
 
 

@@ -1,12 +1,8 @@
 #!/usr/bin/python
 
-import Config
-import sys
-import Add
 from PIL import Image,  ImageEnhance, ImageFilter, ImageFont, ImageDraw
-import Textdraw
 import argparse
-from Makeimage import make_image
+from easyrice.Makeimage import make_image
 
 
 if __name__ == "__main__":

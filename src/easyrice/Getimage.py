@@ -1,6 +1,6 @@
 import argparse
 from PIL import Image,  ImageEnhance, ImageFilter, ImageFont, ImageDraw
-import Config
+import easyrice.Config
 
 def get_image(args):
     

@@ -5,7 +5,7 @@
 
 from PIL import ImageFont, Image, ImageDraw
 import os, sys, subprocess
-import Textvalues
+import easyrice.Textvalues
 
 
 class TextCreation:

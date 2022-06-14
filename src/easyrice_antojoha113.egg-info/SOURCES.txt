@@ -4,6 +4,7 @@ setup.cfg
 src/easyrice/Add.py
 src/easyrice/Config.py
 src/easyrice/Getimage.py
+src/easyrice/Makeimage.py
 src/easyrice/Textdraw.py
 src/easyrice/Textvalues.py
 src/easyrice/__init__.py
