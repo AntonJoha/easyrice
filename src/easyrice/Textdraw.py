@@ -38,8 +38,10 @@ class TextCreation:
 
     def commandToText(self, command, x, y, width, heigth):
         self.maxpos = (width/self.size[0], heigth/self.size[1])
+        print("MAX", self.maxpos)
         command = command.strip("\n").split(" ")
         result = subprocess.run(command, stdout=subprocess.PIPE).stdout.decode("utf-8")
+        print(result)
         self._writetext(result, x, y)
 
     def _writetext(self, text, x, y):
@@ -66,8 +68,11 @@ class TextCreation:
 
     def _newline(self):
         self._flush()
+        print("Pre")
+        print(self.pos)
         self.pos = (0, self.pos[1] + 1)
-        print("newline")
+        print("Post")
+        print(self.pos)
 
     def _addchar(self, char):
         self.buffer += char
@@ -94,9 +99,11 @@ class TextCreation:
         i += 1
         if not text[i].isnumeric():
             if (text[i] == "s"):
+                print("Save: " , self.pos)
                 self.savedpos = self.pos
                 return i + 1
             if (text[i] == "u"):
+                print("Restore: " , self.pos)
                 self.pos = self.savedpos
                 return i + 1
             i += 1
@@ -118,6 +125,7 @@ class TextCreation:
                 done = True
             else:
                 i += 1
+        print("Number: "  + str(number) + " Position: " + str(self.pos[1]) + " Letter " + text[i])
         if text[i] == 'A':
             self.pos = (self.pos[0] , self.pos[1] - numbers[0])
         elif text[i] == 'B':
@@ -198,8 +206,10 @@ class TextCreation:
         if self.pos[1] > self.maxpos[1]:
             self.pos = (self.pos[0], self.maxpos[1])
         if self.pos[1] < 0:
+            print("Correction")
             self.pos = (self.pos[0], 0)
         if self.pos[0] < 0:
+            print("Correction")
             self.pos = (0, self.pos[1])
 
 

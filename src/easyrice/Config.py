@@ -42,8 +42,8 @@ def getcommands(filename):
 				curr["y"] = 0
 			if "width" not in curr:
 				curr["width"] = 0
-			if "heigth" not in curr:
-				curr["heigth"] = 0
+			if "height" not in curr:
+				curr["height"] = 0
 			toReturn.append( curr)
 			curr = {}
 		#END IF
