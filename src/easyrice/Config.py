@@ -19,7 +19,10 @@ def getconfig(filename):
 		toReturn["bold"] = "/usr/share/fonts/gnu-free/FreeMonoBold.otf"
 	if "cursive" not in toReturn:
 		toReturn["cursive"] = "/usr/share/fonts/gnu-free/FreeMonoOblique.otf"
+	if "size" not in toReturn:
+		toReturn["size"] = 15
 	return toReturn
+
 
 
 def getcommands(filename):
