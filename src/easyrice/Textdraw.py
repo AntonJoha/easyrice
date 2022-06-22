@@ -5,7 +5,7 @@
 
 from PIL import ImageFont, Image, ImageDraw
 import os, sys, subprocess
-import easyrice.Textvalues
+from easyrice.Textvalues import black, white, getbytecolor, reset, getcolor
 
 
 class TextCreation:
@@ -26,8 +26,8 @@ class TextCreation:
         self.underline = False
 
         #COLOR INIT
-        self.color = Textvalues.black()
-        self.foreground = Textvalues.white()
+        self.color = black()
+        self.foreground = white()
 
         #REST INIT
         self.pos = (0,0)
@@ -61,8 +61,8 @@ class TextCreation:
             self._addchar(text[i])
             i += 1
         self._flush()
-        self.foreground = Textvalues.white()
-        self.color = Textvalues.black()
+        self.foreground = white()
+        self.color = black()
         self.underline = False
         self.strikethrough = False
 
@@ -79,7 +79,7 @@ class TextCreation:
 
     def _flush(self):
         pos = (self.pos[0]*self.size[0] +self.relative[0], self.pos[1]*self.size[1] + self.relative[1])
-        if self.color is not Textvalues.black():
+        if self.color is not black():
             points = ((pos[0], pos[1]), (pos[0] + self.size[0]*len(self.buffer), self.size[1] + pos[1]))
             self.draw.rectangle(points, fill=self.color, outline=self.color)
 
@@ -153,15 +153,15 @@ class TextCreation:
         if numbers[0] == 38 or numbers[0] == 48:
             if numbers[1] == 5:
                 if numbers[0] == 38:
-                    self.foreground = Textvalues.getbytecolor(numbers[2])
+                    self.foreground = getbytecolor(numbers[2])
                 else:
-                    self.color = Textvalues.getbytecolor(numbers[2])
+                    self.color = getbytecolor(numbers[2])
                 return
 
         for number in numbers:
             if number == 0:
-                self.foreground = Textvalues.reset()
-                self.color = Textvalues.black()
+                self.foreground = reset()
+                self.color = black()
                 self.underline = False
                 self.strikethrough = False
                 continue
@@ -196,9 +196,9 @@ class TextCreation:
                 print("5m not supported, an image can't blink!!!!!")
                 continue
             elif number < 40:
-                self.foreground = Textvalues.getcolor(number % 10)
+                self.foreground = getcolor(number % 10)
             else:
-                self.color = Textvalues.getcolor(number % 10)
+                self.color = getcolor(number % 10)
 
     def _checkposition(self):
         if self.pos[0] > self.maxpos[0]:

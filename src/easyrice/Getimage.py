@@ -1,11 +1,10 @@
-import argparse
-from PIL import Image,  ImageEnhance, ImageFilter, ImageFont, ImageDraw
-import easyrice.Config
+from PIL import Image
+from easyrice.Config import getcommands
 
 def get_image(args):
     
     if args.black == True:
-        commands = Config.getcommands(args.command)
+        commands = getcommands(args.command)
         x = 0
         y = 0
         for c in commands:

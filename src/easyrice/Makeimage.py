@@ -1,8 +1,8 @@
-import easyrice.Config
+from easyrice.Config import getcommands, getconfig
 import sys
-import easyrice.Add
+from easyrice.Add import addrectangle
 from PIL import Image,  ImageEnhance, ImageFilter, ImageFont, ImageDraw
-import easyrice.Textdraw
+from easyrice.Textdraw import TextCreation, 
 import argparse
 
 
@@ -25,8 +25,8 @@ def get_black(commands):
     return Image.new("RGB", (x,y), (0,0,0))
 
 def make_image(config, commands, out , inFile=None , blend =0.8, fontSize=10):
-    commands = Config.getcommands(commands)
-    config = Config.getconfig(config)
+    commands = getcommands(commands)
+    config = getconfig(config)
     
     img = get_image(inFile, commands)
 
@@ -35,7 +35,7 @@ def make_image(config, commands, out , inFile=None , blend =0.8, fontSize=10):
 
 
     for c in commands:
-        Add.addrectangle(draw, int(c["x"]), int(c["x"]) + int(c["width"]),
+        addrectangle(draw, int(c["x"]), int(c["x"]) + int(c["width"]),
                 int(c["y"]), int(c["y"]) + int(c["height"]))
 
     img = Image.blend(img,copy, blend)
@@ -44,7 +44,7 @@ def make_image(config, commands, out , inFile=None , blend =0.8, fontSize=10):
     bold = ImageFont.truetype(config["bold"].strip("\n"), fontSize)
     cursive = ImageFont.truetype(config["cursive"].strip("\n"), fontSize)
 
-    text = Textdraw.TextCreation(draw, font, bold, cursive)
+    text = TextCreation(draw, font, bold, cursive)
 
     for c in commands:
         text.commandToText(c["command"], int(c["x"]) + 6, int(c["y"]) + 6, int(c["width"]), int(c["height"]))
