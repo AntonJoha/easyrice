@@ -21,7 +21,7 @@ def get_black(commands):
         if int(c["x"]) + int(c["width"]) > x:
             x = int(c["x"]) + int(c["width"])
         if int(c["y"]) + int(c["height"]) > y:
-            y = int(c["y"]) + int(c["width"])
+            y = int(c["y"]) + int(c["height"])
     return Image.new("RGB", (x,y), (0,0,0))
 
 def make_image(config, commands, out , inFile=None , blend =0.8):
@@ -50,4 +50,3 @@ def make_image(config, commands, out , inFile=None , blend =0.8):
         text.commandToText(c["command"], int(c["x"]) + 6, int(c["y"]) + 6, int(c["width"]), int(c["height"]))
     img.save(out, "PNG")
     
-
